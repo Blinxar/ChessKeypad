@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessKeypad", "ChessKeypad\ChessKeypad.csproj", "{45F073E1-08AC-4644-9061-AC34A42E4876}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessKeypad.Models", "ChessKeypad.Models\ChessKeypad.Models.csproj", "{653D28C4-7503-41AA-BAA6-AF3CC82DF159}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessKeypad.Tests", "ChessKeypad.Tests\ChessKeypad.Tests.csproj", "{E5D2CF6C-5919-4ADA-A862-C25ED391495B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessKeypad.Factories", "Factories\ChessKeypad.Factories.csproj", "{6B7E062B-BF97-4FBA-B135-7B8CDC1DDB35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessKeypad.Managers", "ChessKeypad.Managers\ChessKeypad.Managers.csproj", "{FBA3A059-89E7-4CF3-98DD-8A6BD8C4CB4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45F073E1-08AC-4644-9061-AC34A42E4876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45F073E1-08AC-4644-9061-AC34A42E4876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45F073E1-08AC-4644-9061-AC34A42E4876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45F073E1-08AC-4644-9061-AC34A42E4876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{653D28C4-7503-41AA-BAA6-AF3CC82DF159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{653D28C4-7503-41AA-BAA6-AF3CC82DF159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{653D28C4-7503-41AA-BAA6-AF3CC82DF159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{653D28C4-7503-41AA-BAA6-AF3CC82DF159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5D2CF6C-5919-4ADA-A862-C25ED391495B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5D2CF6C-5919-4ADA-A862-C25ED391495B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5D2CF6C-5919-4ADA-A862-C25ED391495B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5D2CF6C-5919-4ADA-A862-C25ED391495B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B7E062B-BF97-4FBA-B135-7B8CDC1DDB35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B7E062B-BF97-4FBA-B135-7B8CDC1DDB35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B7E062B-BF97-4FBA-B135-7B8CDC1DDB35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B7E062B-BF97-4FBA-B135-7B8CDC1DDB35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBA3A059-89E7-4CF3-98DD-8A6BD8C4CB4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA3A059-89E7-4CF3-98DD-8A6BD8C4CB4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA3A059-89E7-4CF3-98DD-8A6BD8C4CB4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA3A059-89E7-4CF3-98DD-8A6BD8C4CB4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D0439FC-60D2-400C-BED2-E24EB3BFF3A0}
+	EndGlobalSection
+EndGlobal
