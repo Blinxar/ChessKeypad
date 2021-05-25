@@ -9,93 +9,30 @@ namespace ChessKeypad.Tests
     public class NumberGeneratorTests
     {
         [TestMethod]
-        public void PawnShouldNotHaveAnyPermutationsFor7DigitNumbers()
+        [DataRow(LayoutType.TwoByTwo, PieceType.Knight, 2, 0)]
+        [DataRow(LayoutType.TwoByTwo, PieceType.Bishop, 2, 4)]
+        [DataRow(LayoutType.TwoByTwo, PieceType.Rook, 2, 8)]
+        [DataRow(LayoutType.PhoneKeypad, PieceType.Pawn, 2, 6)]
+        [DataRow(LayoutType.PhoneKeypad, PieceType.Rook, 2, 35)]
+        [DataRow(LayoutType.PhoneKeypad, PieceType.Bishop, 2, 20)]
+        [DataRow(LayoutType.PhoneKeypad, PieceType.Knight, 2, 16)]
+        [DataRow(LayoutType.PhoneKeypad, PieceType.Pawn, 3, 3)]
+        [DataRow(LayoutType.PhoneKeypad, PieceType.Bishop, 3, 49)]
+        [DataRow(LayoutType.PhoneKeypad, PieceType.King, 2, 40)]
+        [DataRow(LayoutType.PhoneKeypad, PieceType.Pawn, 7, 0)]
+        [DataRow(LayoutType.PhoneKeypad, PieceType.Rook, 7, 49326)]
+        public void PermutationsTest(LayoutType layoutType, PieceType pieceType, int numberOfDigits, int expectedPermutations)
         {
             var layoutFactory = new LayoutFactory();
-            var layout = layoutFactory.Get(LayoutType.PhoneKeypad);
+            var layout = layoutFactory.Get(layoutType);
             var pieceFactory = new PieceFactory();
-            var piece = pieceFactory.Get(PieceType.Pawn);
+            var piece = pieceFactory.Get(pieceType);
 
             var numberGenerator = new NumberGenerator();
 
-            var permutations = numberGenerator.CalculatePermutations(layout, piece, 7);
+            var permutations = numberGenerator.CalculatePermutations(layout, piece, numberOfDigits);
 
-            Assert.AreEqual(0, permutations);
-        }
-
-        [TestMethod]
-        public void PawnShouldHave6PermutationsFor2DigitNumbers()
-        {
-            var layoutFactory = new LayoutFactory();
-            var layout = layoutFactory.Get(LayoutType.PhoneKeypad);
-            var pieceFactory = new PieceFactory();
-            var piece = pieceFactory.Get(PieceType.Pawn);
-
-            var numberGenerator = new NumberGenerator();
-
-            var permutations = numberGenerator.CalculatePermutations(layout, piece, 2);
-
-            Assert.AreEqual(6, permutations);
-        }
-
-        [TestMethod]
-        public void RookShouldHave8PermutationsFor2DigitsOn2By2Grid()
-        {
-            var layoutFactory = new LayoutFactory();
-            var layout = layoutFactory.Get(LayoutType.TwoByTwo);
-            var pieceFactory = new PieceFactory();
-            var piece = pieceFactory.Get(PieceType.Rook);
-
-            var numberGenerator = new NumberGenerator();
-
-            var permutations = numberGenerator.CalculatePermutations(layout, piece, 2);
-
-            Assert.AreEqual(8, permutations);
-        }
-
-        [TestMethod]
-        public void BishopShouldHave4PermutationsFor2DigitsOn2By2Grid()
-        {
-            var layoutFactory = new LayoutFactory();
-            var layout = layoutFactory.Get(LayoutType.TwoByTwo);
-            var pieceFactory = new PieceFactory();
-            var piece = pieceFactory.Get(PieceType.Bishop);
-
-            var numberGenerator = new NumberGenerator();
-
-            var permutations = numberGenerator.CalculatePermutations(layout, piece, 2);
-
-            Assert.AreEqual(4, permutations);
-        }
-
-        [TestMethod]
-        public void KnightShouldHaveNoPermutationsFor2DigitsOn2By2Grid()
-        {
-            var layoutFactory = new LayoutFactory();
-            var layout = layoutFactory.Get(LayoutType.TwoByTwo);
-            var pieceFactory = new PieceFactory();
-            var piece = pieceFactory.Get(PieceType.Knight);
-
-            var numberGenerator = new NumberGenerator();
-
-            var permutations = numberGenerator.CalculatePermutations(layout, piece, 2);
-
-            Assert.AreEqual(0, permutations);
-        }
-
-        [TestMethod]
-        public void RookShouldHavePermutationsFor7DigitsOn()
-        {
-            var layoutFactory = new LayoutFactory();
-            var layout = layoutFactory.Get(LayoutType.PhoneKeypad);
-            var pieceFactory = new PieceFactory();
-            var piece = pieceFactory.Get(PieceType.Rook);
-
-            var numberGenerator = new NumberGenerator();
-
-            var permutations = numberGenerator.CalculatePermutations(layout, piece, 7);
-
-            Assert.AreEqual(0, permutations);
+            Assert.AreEqual(expectedPermutations, permutations);
         }
     }
 }

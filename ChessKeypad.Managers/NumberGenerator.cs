@@ -14,11 +14,23 @@ namespace ChessKeypad.Managers
             {
                 throw new ArgumentException($"Cannot be less than 1", nameof(numberOfDigits));
             }
-            var mover = new Mover();
 
+            var validMoves = CalculateValidMoves(layout, piece);
+
+            var permutations = 0;
+            foreach (Coordinate start in validMoves.Keys.Where(x => layout.Cells[x].ValidStatus == ValidStatus.Anywhere))
+            {
+                permutations += CalculatePermutations(numberOfDigits, start, validMoves);
+            }
+            return permutations;
+        }
+
+        Dictionary<Coordinate, List<Coordinate>> CalculateValidMoves(Layout layout, Piece piece)
+        {
             // Calculate all valid moves from a valid start position to any other node
             var validMoves = new Dictionary<Coordinate, List<Coordinate>>();
-            foreach (var coordinate in layout.Cells.Keys.Where(x => layout.Cells[x].ValidStatus == ValidStatus.Anywhere))
+            var mover = new Mover();
+            foreach (var coordinate in layout.Cells.Keys)
             {
                 foreach (var move in piece.ValidMoves)
                 {
@@ -41,13 +53,7 @@ namespace ChessKeypad.Managers
                     }
                 }
             }
-
-            var permutations = 0;
-            foreach (Coordinate start in validMoves.Keys)
-            {
-                permutations += CalculatePermutations(numberOfDigits, start, validMoves);
-            }
-            return permutations;
+            return validMoves;
         }
 
         int CalculatePermutations(int numberOfDigits, Coordinate start, Dictionary<Coordinate, List<Coordinate>> validMoves)

@@ -14,22 +14,23 @@ namespace ChessKeypad.Managers
 
         public Coordinate ProcessMove(Move move, Coordinate start)
         {
-            if (move is CompoundMove compoundMove)
-            {
-                var end = start;
-                foreach (var subMove in compoundMove.Moves)
-                {
-                    end = ProcessMove(subMove, end);
-                }
-                return end;
-            }
-
             return move switch
             {
+                CompoundMove compoundMove => ProcessCompoundMove(compoundMove, start),
                 FixedMove fixedMove => ProcessMove(start, fixedMove.Direction, fixedMove.Distance),
                 VariableMove variableMove => ProcessMove(start, variableMove.Direction, 1),
                 _ => throw new System.NotImplementedException(),
             };
+        }
+
+        Coordinate ProcessCompoundMove(CompoundMove move, Coordinate start)
+        {
+            var end = start;
+            foreach (var subMove in move.Moves)
+            {
+                end = ProcessMove(subMove, end);
+            }
+            return end;
         }
 
         Coordinate ProcessMove(Coordinate start, Direction direction, int distance)
