@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessKeypad.Models", "Chess
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessKeypad.Tests", "ChessKeypad.Tests\ChessKeypad.Tests.csproj", "{E5D2CF6C-5919-4ADA-A862-C25ED391495B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessKeypad.Factories", "Factories\ChessKeypad.Factories.csproj", "{6B7E062B-BF97-4FBA-B135-7B8CDC1DDB35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessKeypad.Factories", "ChessKeypad.Factories\ChessKeypad.Factories.csproj", "{6B7E062B-BF97-4FBA-B135-7B8CDC1DDB35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessKeypad.Managers", "ChessKeypad.Managers\ChessKeypad.Managers.csproj", "{FBA3A059-89E7-4CF3-98DD-8A6BD8C4CB4F}"
 EndProject
