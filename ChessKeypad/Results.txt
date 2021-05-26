@@ -1,0 +1,6 @@
+﻿Pawn	0
+Rook	49326
+Knight	952
+Bishop	2341
+Queen	751503
+King	124908

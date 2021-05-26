@@ -58,10 +58,12 @@ namespace ChessKeypad.Managers
 
         int CalculatePermutations(int numberOfDigits, Coordinate start, Dictionary<Coordinate, List<Coordinate>> validMoves)
         {
+            // Fully completed a number
             if (numberOfDigits == 1)
             {
                 return 1;
             }
+            // Reached a dead end
             if (!validMoves.ContainsKey(start))
             {
                 return 0;
