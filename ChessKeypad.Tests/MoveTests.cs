@@ -1,7 +1,6 @@
-﻿using ChessKeypad.Factories;
-using ChessKeypad.Managers;
-using ChessKeypad.Models;
+﻿using ChessKeypad.Models;
 using ChessKeypad.Models.Enums;
+using ChessKeypad.Models.Layouts;
 using ChessKeypad.Models.Moves;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ using System.Collections.Generic;
 namespace ChessKeypad.Tests
 {
     [TestClass]
-    public class MoverTests
+    public class MoveTests
     {
         [TestMethod]
         [DataRow(5, 5, Direction.Up, 1, 5, 6)]
@@ -22,12 +21,11 @@ namespace ChessKeypad.Tests
         [DataRow(5, 5, Direction.DownRight, 1, 6, 4)]
         public void FixedMovesShouldMoveInCorrectDirection(int startX, int startY, Direction direction, int distance, int endX, int endY)
         {
-            var mover = new Mover();
             var start = new Coordinate(startX, startY);
             var proposedEnd = new Coordinate(endX, endY);
-            var move = new FixedMove(direction, distance);
+            var move = new SimpleMove(direction, distance, false);
 
-            var end = mover.ProcessMove(move, start);
+            var end = move.Process(start);
 
             Assert.AreEqual(proposedEnd, end);
         }
@@ -35,35 +33,32 @@ namespace ChessKeypad.Tests
         [TestMethod]
         public void TestCompoundMove()
         {
-            var mover = new Mover();
             var start = new Coordinate(5, 5);
-            var move = new FixedCompoundMove(new List<Move>()
+            var move = new CompoundMove(new List<Move>()
             {
-                new FixedMove(Direction.UpLeft, 2),
-                new FixedMove(Direction.Up, 3)
-            });
+                new SimpleMove(Direction.UpLeft, 2, false),
+                new SimpleMove(Direction.Up, 3, false)
+            }, false);
 
 
-            var end = mover.ProcessMove(move, start);
+            var end = move.Process(start);
 
             Assert.AreEqual(new Coordinate(3, 10), end);
         }
 
         [TestMethod]
-        [DataRow(LayoutType.PhoneKeypad, 0, 0, Direction.Down, 1, false)]
-        [DataRow(LayoutType.PhoneKeypad, 4, 2, Direction.Right, 1, false)]
-        [DataRow(LayoutType.PhoneKeypad, 0, 0, Direction.Up, 1, true)]
-        [DataRow(LayoutType.PhoneKeypad, 0, 0, Direction.UpLeft, 1, false)]
-        public void TestValidMoves(LayoutType layoutType, int startX, int startY, Direction direction, int distance, bool valid)
+        [DataRow(0, 0, Direction.Down, 1, false)]
+        [DataRow(4, 2, Direction.Right, 1, false)]
+        [DataRow(0, 0, Direction.Up, 1, true)]
+        [DataRow(0, 0, Direction.UpLeft, 1, false)]
+        public void TestValidMoves(int startX, int startY, Direction direction, int distance, bool valid)
         {
-            var mover = new Mover();
-            var layoutFactory = new LayoutFactory();
-
-            var layout = layoutFactory.Get(layoutType);
+            var layout = new KeypadLayout();
             var start = new Coordinate(startX, startY);
-            var move = new FixedMove(direction, distance);
+            var move = new SimpleMove(direction, distance, false);
 
-            var isMoveValid = mover.IsMoveValid(layout, move, start, out var end);
+            var end = move.Process(start);
+            var isMoveValid = layout.IsCoordinateValid(end);
 
             Assert.AreEqual(valid, isMoveValid);
         }

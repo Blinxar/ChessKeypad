@@ -1,6 +1,6 @@
 ﻿namespace ChessKeypad.Models.Enums
 {
-    public enum PieceType
+    public enum ChessPiece
     {
         Pawn,
         Rook,

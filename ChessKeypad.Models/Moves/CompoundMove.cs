@@ -2,13 +2,16 @@
 
 namespace ChessKeypad.Models.Moves
 {
-    public abstract record CompoundMove : Move
+    public record CompoundMove(List<Move> Moves, bool VariableLength) : Move(VariableLength)
     {
-        public List<Move> Moves { get; } = new List<Move>();
-
-        protected CompoundMove(List<Move> moves, bool VariableLength) : base(VariableLength)
+        public override Coordinate Process(Coordinate start)
         {
-            Moves = moves;
+            var end = start;
+            foreach (var move in Moves)
+            {
+                end = move.Process(end);
+            }
+            return end;
         }
     }
 }

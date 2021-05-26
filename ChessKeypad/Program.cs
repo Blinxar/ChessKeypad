@@ -1,20 +1,20 @@
 ﻿using ChessKeypad.Factories;
 using ChessKeypad.Managers;
 using ChessKeypad.Models.Enums;
+using ChessKeypad.Models.Layouts;
 using System;
 
-var layoutFactory = new LayoutFactory();
-var layout = layoutFactory.Get(LayoutType.PhoneKeypad);
+var layout = new KeypadLayout();
 
-var pieceFactory = new PieceFactory();
-var pawn = pieceFactory.Get(PieceType.Pawn);
-var rook = pieceFactory.Get(PieceType.Rook);
-var knight = pieceFactory.Get(PieceType.Knight);
-var bishop = pieceFactory.Get(PieceType.Bishop);
-var queen = pieceFactory.Get(PieceType.Queen);
-var king = pieceFactory.Get(PieceType.King);
+var pieceFactory = new ChessPieceFactory();
+var pawn = pieceFactory.Get(ChessPiece.Pawn);
+var rook = pieceFactory.Get(ChessPiece.Rook);
+var knight = pieceFactory.Get(ChessPiece.Knight);
+var bishop = pieceFactory.Get(ChessPiece.Bishop);
+var queen = pieceFactory.Get(ChessPiece.Queen);
+var king = pieceFactory.Get(ChessPiece.King);
 
-var numberGenerator = new NumberGenerator();
+var numberGenerator = new PermutationsGenerator();
 Console.WriteLine($"There are {numberGenerator.CalculatePermutations(layout, pawn, 7)} permutations for pawns");
 Console.WriteLine($"There are {numberGenerator.CalculatePermutations(layout, rook, 7)} permutations for rooks");
 Console.WriteLine($"There are {numberGenerator.CalculatePermutations(layout, knight, 7)} permutations for knights");
