@@ -1,4 +1,3 @@
-﻿namespace ChessKeypad.Models
-{
-    public record Coordinate (int X, int Y);
-}
+﻿namespace ChessKeypad.Models;
+
+public record Coordinate (int X, int Y);

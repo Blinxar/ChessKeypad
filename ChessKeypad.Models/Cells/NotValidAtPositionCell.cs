@@ -1,10 +1,9 @@
-﻿namespace ChessKeypad.Models.Cells
+﻿namespace ChessKeypad.Models.Cells;
+
+public record NotValidAtPositionCell(char Character, int Position) : Cell(Character)
 {
-    public record NotValidAtPositionCell(char Character, int Position) : Cell(Character)
+    public override bool IsValid(int? position = null)
     {
-        public override bool IsValid(int? position = null)
-        {
-            return !position.HasValue || Position != position;
-        }
+        return !position.HasValue || Position != position;
     }
 }

@@ -1,7 +1,6 @@
-﻿namespace ChessKeypad.Models.Cells
+﻿namespace ChessKeypad.Models.Cells;
+
+public record DefaultCell(char Character) : Cell(Character)
 {
-    public record DefaultCell(char Character) : Cell(Character)
-    {
-        public override bool IsValid(int? position = null) => true;
-    }
+    public override bool IsValid(int? position = null) => true;
 }

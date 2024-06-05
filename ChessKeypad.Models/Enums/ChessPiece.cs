@@ -1,12 +1,11 @@
-﻿namespace ChessKeypad.Models.Enums
+﻿namespace ChessKeypad.Models.Enums;
+
+public enum ChessPiece
 {
-    public enum ChessPiece
-    {
-        Pawn,
-        Rook,
-        Knight,
-        Bishop,
-        Queen,
-        King
-    }
+    Pawn,
+    Rook,
+    Knight,
+    Bishop,
+    Queen,
+    King
 }

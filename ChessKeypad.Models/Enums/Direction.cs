@@ -1,14 +1,13 @@
-﻿namespace ChessKeypad.Models.Enums
+﻿namespace ChessKeypad.Models.Enums;
+
+public enum Direction
 {
-    public enum Direction
-    {
-        Up,
-        Down,
-        Left,
-        Right,
-        UpLeft,
-        UpRight,
-        DownLeft,
-        DownRight
-    }
+    Up,
+    Down,
+    Left,
+    Right,
+    UpLeft,
+    UpRight,
+    DownLeft,
+    DownRight
 }
