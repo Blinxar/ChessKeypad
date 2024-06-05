@@ -6,9 +6,4 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ChessKeypad.Factories\ChessKeypad.Factories.csproj" />
-    <ProjectReference Include="..\ChessKeypad.Managers\ChessKeypad.Managers.csproj" />
-  </ItemGroup>
-
 </Project>

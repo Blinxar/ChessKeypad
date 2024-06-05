@@ -18,9 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ChessKeypad.Factories\ChessKeypad.Factories.csproj" />
-    <ProjectReference Include="..\ChessKeypad.Managers\ChessKeypad.Managers.csproj" />
-    <ProjectReference Include="..\ChessKeypad.Models\ChessKeypad.Models.csproj" />
+    <ProjectReference Include="..\ChessKeypad\ChessKeypad.csproj" />
   </ItemGroup>
 
 </Project>
